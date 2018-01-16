@@ -26,4 +26,4 @@ async def on_message(message):
         res = requests.get('https://pgorelease.nianticlabs.com/plfe/version')
         await client.send_message(message.channel, ("```\nCurrently Forced API: " + (res.text) + "```"))
 
-client.run("-----Insert Bot Token Here-----")
+client.run("------Insert Bot Token Here------")

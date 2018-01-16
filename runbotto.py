@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import logging
 import requests
+import time
 
 
 client = discord.Client()
@@ -24,6 +25,6 @@ async def on_message(message):
             return msg.content.startswith("!version")
         message = await client.wait_for_message(author=None, check=version_check)
         res = requests.get('https://pgorelease.nianticlabs.com/plfe/version')
-        await client.send_message(message.channel, ("```\nCurrently Forced API: " + (res.text) + "```"))
+        await client.send_message(message.channel, ("```\nCurrently Forced API: " + (res.text) + "\n\nSuccesfully requested Niantic Labs at:\n" + str(time.asctime() + "```")))
 
 client.run("------Insert Bot Token Here------")
